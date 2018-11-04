@@ -15,7 +15,7 @@
         "build": "tsc"
     },
     "types": "index.d.ts",
-    "name": "@types/sfs2x-api",
+    "name": "@senspark/sfs2x-api",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/Senspark/types-sfs2x-api.git"
