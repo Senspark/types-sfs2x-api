@@ -1140,12 +1140,204 @@ declare namespace SFS2X {
         RV_GAME_STARTED,
     }
 
+    /**
+     * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/SFSBuddy.html
+     *
+     * The representation of a buddy in the current user's buddy list.
+     */
     export class SFSBuddy {
-        // TODO.
+        /**
+         * Indicates the id of this buddy. This is equal to the id assigned by SmartFoxServer to the corresponding user.
+         */
+        readonly id: number;
+
+        /**
+         * Indicates whether this buddy is blocked in the current user's buddy list or not. A buddy can be blocked by
+         * means of a BlockBuddyRequest request.
+         */
+        readonly isBlocked: number;
+
+        /** Indicates whether this buddy is online in the Buddy List system or not. */
+        readonly isOnline: boolean;
+
+        /** Indicates whether this buddy is temporary (non-persistent) in the current user's buddy list or not. */
+        readonly isTemp: boolean;
+
+        /** Indicates the name of this buddy. This is equal to the name of the corresponding user. */
+        readonly name: string;
+
+        /** Returns the nickname of this buddy. If the nickname is not set, null is returned. */
+        readonly nickName: string | null;
+
+        /**
+         * Returns the custom state of this buddy. Examples of custom states are "Available", "Busy", "Be right back",
+         * etc. If the custom state is not set, null is returned.
+         * 
+         * The list of available custom states is returned by the SFSBuddyManager.getBuddyStates() method.
+         */
+        readonly state: string;
+
+        /**
+         * Indicates whether this user has the specified Buddy Variable set or not.
+         * @param varName The name of the Buddy Variable whose existance must be checked.
+         * @returns true if a Buddy Variable with the passed name is set for this buddy.
+         */
+        containsVariable(varName: string): boolean;
+
+        /**
+         * Retrieves the list of persistent Buddy Variables for this buddy.
+         * @returns A list of SFSBuddyVariable objects corresponding to the buddy's persistent Buddy Variables.
+         */
+        getOfflineVariables(): SFSBuddyVariable[];
+
+        /**
+         * Retrieves the list of non-persistent Buddy Variables for this buddy.
+         * @returns A list of SFSBuddyVariable objects corresponding to the buddy's non-persistent Buddy Variables.
+         */
+        getOnlineVariables(): SFSBuddyVariable[];
+
+        /**
+         * Retrieves a Buddy Variable from its name.
+         * @param varName The name of the Buddy Variable to be retrieved.
+         * @returns The object representing the Buddy Variable, or null if no Buddy Variable with the passed name is
+         * associated to this buddy.
+         */
+        getVariable(varName: string): SFSBuddyVariable | null;
+
+        /**
+         * Retrieves all the Buddy Variables of this user.
+         * @returns The list of SFSBuddyVariable objects associated to the buddy.
+         */
+        getVariables(): SFSBuddyVariable[];
+
+        /**
+         * Returns a string that contains the buddy id and name.
+         * @returns The string representation of the SFSBuddy object.
+         */
+        toString(): string;
     }
 
+    /**
+     * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/SFSBuddyManager.html
+     *
+     * The manager of the current user's Buddy List system.
+     */
     export class SFSBuddyManager {
-        // TODO.
+        /**
+         * Indicates whether the client's Buddy List system is initialized or not. If not, an InitBuddyListRequest
+         * request should be sent to the server in order to retrieve the persistent Buddy List data.
+         * @returns true if the Buddy List system is initialized in the client.
+         */
+        readonly isInited: boolean;
+
+        /**
+         * Indicates whether a buddy exists in user's buddy list or not.
+         * @param name The name of the buddy whose presence in the buddy list is to be checked.
+         * @returns true if the specified buddy exists in the buddy list.
+         */
+        containsBuddy(name: string): boolean;
+
+        /**
+         * Retrieves a SFSBuddy object from its id property.
+         * @param id The id of the buddy to be retrieved.
+         * @returns The SFSBuddy object representing the buddy, or null if no buddy with the passed id exists in the
+         * buddy list.
+         */
+        getBuddyById(id: number): SFSBuddy | null;
+
+        /**
+         * Retrieves a SFSBuddy object from its name property.
+         * @param name The name of the buddy to be retrieved.
+         * @returns The SFSBuddy object representing the buddy, or null if no buddy with the passed name exists in the
+         * buddy list.
+         */
+        getBuddyByName(name: string): SFSBuddy | null;
+
+        /**
+         * Retrieves a SFSBuddy object using its nickName property.
+         * @param nickName The nickname of the buddy to be found.
+         * @returns The SFSBuddy object representing the buddy, or null if no buddy with the passed nickname exists in
+         * the buddies list.
+         */
+        getBuddyByNickName(nickName: string): SFSBuddy | null;
+
+        /**
+         * Returns a list of SFSBuddy objects representing all the buddies in the user's buddy list.
+         * @returns A list of SFSBuddy objects representing all the buddies.
+         */
+        getBuddyList(): SFSBuddy[];
+
+        /**
+         * Returns a list of strings representing the available custom buddy states.
+         *
+         * The custom states are received by the client upon initialization of the Buddy List system. They can be
+         * configured by means of the SmartFoxServer 2X Administration Tool.
+         *
+         * @returns The list of available custom buddy states in the Buddy List system.
+         */
+        getBuddyStates(): string[];
+
+        /**
+         * Returns the current user's nickname (if set).
+         *
+         * If the nickname was never set before, null is returned.
+         *
+         * As the nickname of a user in a buddy list is handled by means of a reserved Buddy Variable (see
+         * ReservedBuddyVariables class), it can be set using the SetBuddyVariablesRequest request.
+         *
+         * @returns The user nickname in the Buddy List system.
+         */
+        getMyNickName(): string | null;
+
+        /**
+         * Returns the current user's online/offline state.
+         *
+         * If true, the user appears to be online in the buddy list of other users who have him as a buddy.
+         * The online state of a user in a buddy list is handled by means of a reserved Buddy Variable (see
+         * ReservedBuddyVariables class); it can be changed using the dedicated GoOnlineRequest request.
+         *
+         * @returns if the user is online in the Buddy List system.
+         */
+        getMyOnlineState(): boolean;
+
+        /**
+         * Returns the current user's custom state (if set).
+         *
+         * Examples of custom states are "Available", "Busy", "Be right back", etc. If the custom state was never set
+         * before, null is returned.
+         *
+         * As the custom state of a user in a buddy list is handled by means of a reserved Buddy Variable (see
+         * ReservedBuddyVariables class), it can be set using the SetBuddyVariablesRequest request.
+         *
+         * @returns The user state in the Buddy List system.
+         */
+        getMyState(): string | null;
+
+        /**
+         * Retrieves a Buddy Variable set for the current user from its name.
+         * @param varName The name of the Buddy Variable to be retrieved.
+         * @returns The SFSBuddyVariable object representing the Buddy Variable, or null if no Buddy Variable with the
+         * passed name is associated to the current user.
+         */
+        getMyVariable(varName: string): SFSBuddyVariable | null;
+
+        /**
+         * Returns all the Buddy Variables set for the current user.
+         * @returns A list of SFSBuddyVariable objects representing all the Buddy Variables set for the user.
+         */
+        getMyVariables(): SFSBuddyVariable[];
+
+        /**
+         * Returns a list of SFSBuddy objects representing all the offline buddies in the user's buddy list.
+         * @returns A list of SFSBuddy objects representing the offline buddies.
+         */
+        getOfflineBuddies(): SFSBuddy[];
+
+        /**
+         * Returns a list of SFSBuddy objects representing all the online buddies in the user's buddy list.
+         * @returns A list of SFSBuddy objects representing the online buddies.
+         */
+        getOnlineBuddies(): SFSBuddy[];
     }
 
     /**
@@ -1649,7 +1841,7 @@ declare namespace SFS2X {
     }
 
     export class BaseRequest {
-        // TODO.
+        // Empty.
     }
 
     /**
@@ -2423,7 +2615,28 @@ declare namespace SFS2X {
      * Sends a public chat message.
      */
     export class PublicMessageRequest extends BaseRequest {
-        // TODO.
+        /**
+         * Creates a new PublicMessageRequest instance. The instance must be passed to the SmartFox.send() method for
+         * the request to be executed.
+         *
+         * Using this request a public message is dispatched to all the users in the specified Room, including the
+         * message sender (this allows showing chat messages in the correct order in the application interface); the
+         * corresponding event is the publicMessage event. It is also possible to send an optional object together with
+         * the message: it can contain custom parameters useful to transmit, for example, additional informations
+         * related to the message, like the text font or color, or other formatting details.
+         *
+         * In case the target Room is not specified, the message is sent in the last Room joined by the sender.
+         *
+         * NOTE: the publicMessage event is dispatched if the Room is configured to allow public messaging only (see the
+         * RoomSettings.permissions parameter).
+         *
+         * @param message The message to be sent to all the users in the target Room.
+         * @param params A SFSObject containing additional custom parameters to be sent to the message recipients (for
+         * example the color of the text, etc).
+         * @param targetRoom The SFSRoom object corresponding to the Room where the message should be dispatched; if
+         * null, the last Room joined by the user is used.
+         */
+        constructor(message: string, params: SFSObject = null, targetRoom: SFSRoom = null);
     }
 
     /**
@@ -2432,7 +2645,22 @@ declare namespace SFS2X {
      * Quickly joins the current user in a public game.
      */
     export class QuickJoinGameRequest extends BaseRequest {
-        // TODO.
+        /**
+         * Creates a new QuickJoinGameRequest instance. The instance must be passed to the SmartFox.send() method for
+         * the request to be executed.
+         *
+         * Using this request, by providing a matching expression and a list of Rooms or Groups, SmartFoxServer can
+         * search for a matching public Game Room and immediately join the user into that Room as a player.
+         *
+         * If a game is found and can be joined, the roomJoin event is dispatched to the requester's client.
+         *
+         * @param matchExpression A matching expression that the system will use to search a Game Room where to join the
+         * current user. If null is passed, the first available game Room is joined.
+         * @param whereToSearch An array of SFSRoom objects or an array of Group names to which the matching expression
+         * should be applied. The maximum number of elements that this array can contain is 32.
+         * @param roomToLeave A SFSRoom object representing the Room that the user should leave when joining the game.
+         */
+        constructor(matchExpression: MatchExpression, whereToSearch: SFSRoom[], roomToLeave: SFSRoom = null);
     }
 
     /**
@@ -2441,11 +2669,46 @@ declare namespace SFS2X {
      * Removes a buddy from the current user's buddy list.
      */
     export class RemoveBuddyRequest extends BaseRequest {
-        // TODO.
+        /**
+         * Creates a new RemoveBuddyRequest instance. The instance must be passed to the SmartFox.send() method for the
+         * request to be executed.
+         *
+         * In order to remove a buddy, the current user must be online in the Buddy List system. If the buddy is removed
+         * successfully, the operation is confirmed by a buddyRemove event; otherwise the buddyError event is fired.
+         *
+         * NOTE: this request can be sent if the Buddy List system was previously initialized only (see the
+         * InitBuddyListRequest request description).
+         *
+         * @param buddyName The name of the buddy to be removed from the user's buddy list.
+         */
+        constructor(buddyName: string);
     }
 
+    /**
+     * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/SetBuddyVariablesRequest.html
+     *
+     * Sets one or more Buddy Variables for the current user.
+     */
     export class SetBuddyVariablesRequest extends BaseRequest {
-        // TODO.
+        /**
+         * Creates a new SetBuddyVariablesRequest instance. The instance must be passed to the SmartFox.send() method
+         * for the request to be executed.
+         *
+         * This operation updates the SFSBuddy object representing the user in all the buddy lists in which the user was
+         * added as a buddy. If the operation is successful, a buddyVariablesUpdate event is dispatched to all the
+         * owners of those buddy lists and to the user who updated his variables too.
+         *
+         * The Buddy Variables can be persisted, which means that their value will be saved even it the user disconnects
+         * and it will be restored when he connects again. In order to make a variable persistent, put the constant
+         * SFSBuddyVariable.OFFLINE_PREFIX before its name. Read the SmartFoxServer 2X documentaion about the Buddy List
+         * API for more informations.
+         *
+         * NOTE: this request can be sent if the Buddy List system was previously initialized only (see the
+         * InitBuddyListRequest request description) and the current user state in the system is "online".
+         *
+         * @param buddyVariables A list of SFSBuddyVariable objects representing the Buddy Variables to set.
+         */
+        constructor(buddyVariables: SFSBuddyVariable[]);
     }
 
     /**
@@ -2470,8 +2733,26 @@ declare namespace SFS2X {
         constructor(roomVariables: SFSRoomVariable[], room: SFSRoom = null);
     }
 
+    /**
+     * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/SetUserPositionRequest.html
+     *
+     * Updates the User position inside an MMORoom.
+     */
     export class SetUserPositionRequest extends BaseRequest {
-        // TODO.
+        /**
+         * Creates a new SetUserPositionRequest instance. The instance must be passed to the SmartFox.send() method for
+         * the request to be executed.
+         *
+         * MMORooms represent virtual environments and can host any number of users. Based on their position, the system
+         * allows users within a certain range from each other (Area of Interest, or AoI) to interact.
+         *
+         * This request allows the current user to update his position inside the MMORoom, which in turn will trigger a proximityListUpdate event for all users that fall within his AoI.
+         *
+         * @param pos The user position.
+         * @param targetRoom The MMORoom object corresponding to the Room where the position should be set; if null, the
+         * last Room joined by the user is used.
+         */
+        constructor(pos: Vec3D, targetRoom: MMORoom = null);
     }
 
     /**
@@ -2618,6 +2899,14 @@ declare namespace SFS2X {
          * @default LogLevel.INFO
          */
         level: LogLevel;
+    }
+
+    export class MMORoom {
+        // TODO.
+    }
+
+    export class MMORoomSettings {
+        // TODO.
     }
 
     /**
