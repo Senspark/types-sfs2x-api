@@ -2527,7 +2527,10 @@ declare module 'sfs2x-api' {
          * "parent scope" for the callback function, thus providing context (i.e. access to variables and other methods)
          * to the function itself.
          */
-        addEventListener(evtType: string, callback: (event: object) => void, scope: object = null): void;
+        addEventListener(
+            evtType: SFSEvent | LoggerEvent,
+            callback: (event: object) => void,
+            scope: object = null): void;
 
         /**
          * Removes an event listener.
@@ -2535,7 +2538,7 @@ declare module 'sfs2x-api' {
          * LoggerEvent classes.
          * @param callback The listener function to be removed.
          */
-        removeEventListener(evtType: string, callback: (event: object) => void): void;
+        removeEventListener(evtType: SFSEvent | LoggerEvent, callback: (event: object) => void): void;
     }
 
     /**
@@ -2570,23 +2573,23 @@ declare module 'sfs2x-api' {
      *
      * The event types dispatched by the SmartFoxServer 2X JavaScript API internal logger.
      */
-    export class LoggerEvent {
+    export enum LoggerEvent {
         /**
          * The debug event type, dispatched when a low level message is logged by the SmartFoxServer 2X JavaScript API.
          */
-        static readonly DEBUG: string;
+        DEBUG,
 
         /**
          * The info event type, dispatched when a standard informative message is logged by the SmartFoxServer 2X
          * JavaScript API.
          */
-        static readonly INFO: string;
+        INFO,
 
         /** The warn event type, dispatched when a warning message is logged by the SmartFoxServer 2X JavaScript API. */
-        static readonly WARNING: string;
+        WARNING,
 
         /** The error event type, dispatched when an error message is logged by the SmartFoxServer 2X JavaScript API. */
-        static readonly ERROR: string;
+        ERROR,
     }
 
     /**
