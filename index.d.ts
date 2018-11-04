@@ -1,5 +1,5 @@
 // tslint:disable:member-access
-declare module 'sfs2x-api' {
+declare namespace SFS2X {
     /**
      * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/ClientDisconnectionReason.html
      *
