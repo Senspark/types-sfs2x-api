@@ -1,0 +1,23 @@
+{
+    "description": "declaration file for smartfox",
+    "version": "1.0.0",
+    "author": "senspark",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Senspark/types-sfs2x-api/issues"
+    },
+    "main": "dist/index.js",
+    "homepage": "https://github.com/Senspark/types-sfs2x-api",
+    "keywords": [
+        "smartfox"
+    ],
+    "scripts": {
+        "build": "tsc"
+    },
+    "types": "index.d.ts",
+    "name": "@types/sfs2x-api",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Senspark/types-sfs2x-api.git"
+    }
+}
