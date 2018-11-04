@@ -3118,19 +3118,6 @@ declare module 'sfs2x-api' {
         static readonly STARTS_WITH: StringMatch;
     }
 
-    /**
-     * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/SetUserVariablesRequest.html
-     *
-     * Sets one or more custom User Variables for the current user.
-     */
-    export class SetUserVariablesRequest {
-        /**
-         * Creates a new SetUserVariablesRequest instance.
-         * @param userVariables A list of SFSUserVariable objects representing the User Variables to be set.
-         */
-        constructor(userVariables: SFSUserVariable[]);
-    }
-
     interface SmartFoxConfig {
         /** The IP address or host name of the SmartFoxServer 2X instance to connect to. */
         host?: string;
