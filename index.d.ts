@@ -1,4 +1,5 @@
 // tslint:disable:member-access
+// tslint:disable-next-line:no-namespace
 declare namespace SFS2X {
     /**
      * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/ClientDisconnectionReason.html
@@ -1172,7 +1173,7 @@ declare namespace SFS2X {
         /**
          * Returns the custom state of this buddy. Examples of custom states are "Available", "Busy", "Be right back",
          * etc. If the custom state is not set, null is returned.
-         * 
+         *
          * The list of available custom states is returned by the SFSBuddyManager.getBuddyStates() method.
          */
         readonly state: string;
@@ -2444,7 +2445,7 @@ declare namespace SFS2X {
 
     /**
      * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/LeaveRoomRequest.html
-     * 
+     *
      * Leaves one of the Rooms joined by the current user.
      */
     class LeaveRoomRequest extends BaseRequest {
@@ -2751,7 +2752,8 @@ declare namespace SFS2X {
          * MMORooms represent virtual environments and can host any number of users. Based on their position, the system
          * allows users within a certain range from each other (Area of Interest, or AoI) to interact.
          *
-         * This request allows the current user to update his position inside the MMORoom, which in turn will trigger a proximityListUpdate event for all users that fall within his AoI.
+         * This request allows the current user to update his position inside the MMORoom, which in turn will trigger a
+         * proximityListUpdate event for all users that fall within his AoI.
          *
          * @param pos The user position.
          * @param targetRoom The MMORoom object corresponding to the Room where the position should be set; if null, the
