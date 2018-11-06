@@ -5,7 +5,7 @@ declare namespace SFS2X {
      *
      * The possible reasons why a disconnection from the server occurred.
      */
-    export enum ClientDisconnectionReason {
+    enum ClientDisconnectionReason {
         /**
          * Client was banned from the server.
          *
@@ -56,7 +56,7 @@ declare namespace SFS2X {
      * with runtime data. They are in the form of a number enclosed in curly brackets such as: {0}, {1}, etc. Please
      * make sure you maintain these placeholders while translating the messages.
      */
-    export class SFSErrorCodes {
+    class SFSErrorCodes {
         /**
          * Sets the text of the error message corresponding to the passed error code.
          *
@@ -73,7 +73,7 @@ declare namespace SFS2X {
      *
      * The main event types dispatched by the SmartFoxServer 2X JavaScript API.
      */
-    export enum SFSEvent {
+    enum SFSEvent {
         /**
          * The adminMessage event type, dispatched when the current user receives a message from an administrator user.
          *
@@ -445,7 +445,7 @@ declare namespace SFS2X {
      *
      * The costants defining the data types supported by SFSObject and SFSArray classes.
      */
-    export enum SFSDataType {
+    enum SFSDataType {
         /** A boolean value. */
         BOOL,
 
@@ -512,7 +512,7 @@ declare namespace SFS2X {
      *
      * The SFSArray class is used by SmartFoxServer in client-server data transfer.
      */
-    export class SFSArray {
+    class SFSArray {
         /**
          * Creates a new SFSArray instance.
          *
@@ -707,7 +707,7 @@ declare namespace SFS2X {
      *
      * The SFSObject class is used by SmartFoxServer in client-server data transfer.
      */
-    export class SFSObject {
+    class SFSObject {
         /**
          * Creates a new SFSObject instance.
          *
@@ -897,7 +897,7 @@ declare namespace SFS2X {
      *
      * The valid types for User, Room, Buddy and MMOItem Variables to be passed to the respective constructors.
      */
-    export enum VariableType {
+    enum VariableType {
         /** The type of the Variable is boolean. */
         BOOLEAN,
 
@@ -925,7 +925,7 @@ declare namespace SFS2X {
      *
      * Base class for all SmartFoxServer Variable entities on the client.
      */
-    export class BaseVariable {
+    class BaseVariable {
         /** Indicates if the Variable is null. */
         readonly isNull: boolean;
 
@@ -947,7 +947,7 @@ declare namespace SFS2X {
      *
      * The Buddy Variable entity representation on the client.
      */
-    export class SFSBuddyVariable extends BaseVariable {
+    class SFSBuddyVariable extends BaseVariable {
         /**
          * The prefix to be added to a Buddy Variable name to make it persistent. A persistent Buddy Variable is made
          * available to all users who have the owner in their Buddy List, whether that Buddy is online or not.
@@ -1007,7 +1007,7 @@ declare namespace SFS2X {
      *
      * The Room Variable entity representation on the client.
      */
-    export class SFSRoomVariable extends BaseVariable {
+    class SFSRoomVariable extends BaseVariable {
         /**
          * Indicates whether this Room Variable is persistent or not. A persistent Room Variable continues to exist in
          * the Room after the user who created it has left it and until he disconnects.
@@ -1060,7 +1060,7 @@ declare namespace SFS2X {
      *
      * The User Variable entity representation on the client.
      */
-    export class SFSUserVariable extends BaseVariable {
+    class SFSUserVariable extends BaseVariable {
         /**
          * Indicates whether this User Variable is private or not. A private User Variable is visible only to its owner;
          * any changes made to the variable will be transmitted to the owner only.
@@ -1104,7 +1104,7 @@ declare namespace SFS2X {
      *
      * The reserved Buddy Variable names used by the Buddy List API.
      */
-    export enum ReservedBuddyVariables {
+    enum ReservedBuddyVariables {
         /**
          * The Buddy Variable with this name stores the optional nickname of the user in a buddy list.
          *
@@ -1132,7 +1132,7 @@ declare namespace SFS2X {
      *
      * The reserved Room Variable names used by the Game API.
      */
-    export enum ReservedRoomVariables {
+    enum ReservedRoomVariables {
         /**
          * The Room Variable with this name keeps track of the state (started or stopped) of a game created with the
          * CreateSFSGameRequest request.
@@ -1145,7 +1145,7 @@ declare namespace SFS2X {
      *
      * The representation of a buddy in the current user's buddy list.
      */
-    export class SFSBuddy {
+    class SFSBuddy {
         /**
          * Indicates the id of this buddy. This is equal to the id assigned by SmartFoxServer to the corresponding user.
          */
@@ -1222,7 +1222,7 @@ declare namespace SFS2X {
      *
      * The manager of the current user's Buddy List system.
      */
-    export class SFSBuddyManager {
+    class SFSBuddyManager {
         /**
          * Indicates whether the client's Buddy List system is initialized or not. If not, an InitBuddyListRequest
          * request should be sent to the server in order to retrieve the persistent Buddy List data.
@@ -1345,7 +1345,7 @@ declare namespace SFS2X {
      *
      * The SmartFoxServer Room entity representation on the client.
      */
-    export class SFSRoom {
+    class SFSRoom {
         /** Returns the maximum amount of users, including spectators, that can be contained in this Room. */
         readonly capacity: number;
 
@@ -1491,7 +1491,7 @@ declare namespace SFS2X {
      *
      * The manager of the client-side Rooms list.
      */
-    export class SFSRoomManager {
+    class SFSRoomManager {
         /**
          * Indicates whether the specified Group has been subscribed by the client or not.
          * @param groupId The name of the Group.
@@ -1589,7 +1589,7 @@ declare namespace SFS2X {
      *
      * The representation of a client logged in SmartFoxServer.
      */
-    export class SFSUser {
+    class SFSUser {
         /**
          * Returns the entry point of this user in the current user's AoI.
          *
@@ -1737,7 +1737,7 @@ declare namespace SFS2X {
      *
      * The manager of the local (client-side) users list.
      */
-    export class SFSUserManager {
+    class SFSUserManager {
         /**
          * Indicates whether a user exists in the local users list or not.
          * @param user The SFSUser object representing the user whose presence in the users list is to be tested.
@@ -1793,7 +1793,7 @@ declare namespace SFS2X {
      *
      * The recipient/s of moderator and administrator messages.
      */
-    export class MessageRecipientMode {
+    class MessageRecipientMode {
         /**
          * The moderator/administrator message will be sent to all the clients who subscribed a specific Room Group.
          *
@@ -1840,7 +1840,7 @@ declare namespace SFS2X {
         constructor(mode: number, target: SFSUser | SFSRoom | string | null);
     }
 
-    export class BaseRequest {
+    class BaseRequest {
         // Empty.
     }
 
@@ -1849,7 +1849,7 @@ declare namespace SFS2X {
      *
      * Adds a new buddy to the current user's buddy list.
      */
-    export class AddBuddyRequest extends BaseRequest {
+    class AddBuddyRequest extends BaseRequest {
         /**
          * Creates a new AddBuddyRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -1870,7 +1870,7 @@ declare namespace SFS2X {
      *
      * Sends an administrator message to a specific user or to a group of users.
      */
-    export class AdminMessageRequest extends BaseRequest {
+    class AdminMessageRequest extends BaseRequest {
         /**
          * Creates a new AdminMessageRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -1896,7 +1896,7 @@ declare namespace SFS2X {
      *
      * The available banning modes for a BanUserRequest.
      */
-    export enum BanMode {
+    enum BanMode {
         /** User is banned by IP address. */
         BY_ADDRESS,
 
@@ -1909,7 +1909,7 @@ declare namespace SFS2X {
      *
      * Banishes a user from the server.
      */
-    export class BanUserRequest extends BaseRequest {
+    class BanUserRequest extends BaseRequest {
         /**
          * Creates a new BanUserRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -1945,7 +1945,7 @@ declare namespace SFS2X {
      *
      * Blocks or unblocks a buddy in the current user's buddy list.
      */
-    export class BlockBuddyRequest extends BaseRequest {
+    class BlockBuddyRequest extends BaseRequest {
         /**
          * Creates a new BlockBuddyRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -1970,7 +1970,7 @@ declare namespace SFS2X {
      *
      * Sends a message to a buddy in the current user's buddy list.
      */
-    export class BuddyMessageRequest extends BaseRequest {
+    class BuddyMessageRequest extends BaseRequest {
         /**
          * Creates a new BuddyMessageRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -1999,7 +1999,7 @@ declare namespace SFS2X {
      *
      * Changes the maximum number of users and/or spectators who can join a Room.
      */
-    export class ChangeRoomCapacityRequest extends BaseRequest {
+    class ChangeRoomCapacityRequest extends BaseRequest {
         /**
          * Creates a new ChangeRoomCapacityRequest instance. The instance must be passed to the SmartFox.send() method
          * for the request to be executed.
@@ -2029,7 +2029,7 @@ declare namespace SFS2X {
      *
      * Changes the name of a Room.
      */
-    export class ChangeRoomNameRequest extends BaseRequest {
+    class ChangeRoomNameRequest extends BaseRequest {
         /**
          * Creates a new ChangeRoomNameRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2054,7 +2054,7 @@ declare namespace SFS2X {
      *
      * Changes the password of a Room.
      */
-    export class ChangeRoomPasswordStateRequest extends BaseRequest {
+    class ChangeRoomPasswordStateRequest extends BaseRequest {
         /**
          * Creates a new ChangeRoomPasswordStateRequest instance. The instance must be passed to the SmartFox.send()
          * method for the request to be executed.
@@ -2082,7 +2082,7 @@ declare namespace SFS2X {
      *
      * Creates a new Room in the current Zone.
      */
-    export class CreateRoomRequest extends BaseRequest {
+    class CreateRoomRequest extends BaseRequest {
         /**
          * Creates a new CreateRoomRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2104,7 +2104,7 @@ declare namespace SFS2X {
      * Creates a new public or private Game Room in the current Zone, including player matching criteria, invitations
      * settings and more.
      */
-    export class CreateSFSGameRequest extends BaseRequest {
+    class CreateSFSGameRequest extends BaseRequest {
         /**
          * Creates a new CreateSFSGameRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2130,7 +2130,7 @@ declare namespace SFS2X {
      *
      * Sends a command to the server-side Extension attached to the Zone or to a Room.
      */
-    export class ExtensionRequest extends BaseRequest {
+    class ExtensionRequest extends BaseRequest {
         /**
          * Creates a new ExtensionRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2156,7 +2156,7 @@ declare namespace SFS2X {
      *
      * Retrieves a list of Rooms from the server which match the specified criteria.
      */
-    export class FindRoomsRequest extends BaseRequest {
+    class FindRoomsRequest extends BaseRequest {
         /**
          * Creates a new FindRoomsRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2179,7 +2179,7 @@ declare namespace SFS2X {
      *
      * Retrieves a list of users from the server which match the specified criteria.
      */
-    export class FindUsersRequest extends BaseRequest {
+    class FindUsersRequest extends BaseRequest {
         /**
          * Creates a new FindUsersRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2202,7 +2202,7 @@ declare namespace SFS2X {
      *
      * Toggles the current user's online/offline state as buddy in other users' buddy lists.
      */
-    export class GoOnlineRequest extends BaseRequest {
+    class GoOnlineRequest extends BaseRequest {
         /**
          * Creates a new GoOnlineRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2228,7 +2228,7 @@ declare namespace SFS2X {
      *
      * Initializes the Buddy List system on the current client.
      */
-    export class InitBuddyListRequest extends BaseRequest {
+    class InitBuddyListRequest extends BaseRequest {
         /**
          * Creates a new InitBuddyListRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2248,7 +2248,7 @@ declare namespace SFS2X {
      *
      * The details of an invitation received by the current user.
      */
-    export class SFSInvitation {
+    class SFSInvitation {
         /** Indicates the id of the invitation. It is generated by the server when the invitation is sent. */
         readonly id: number;
 
@@ -2276,7 +2276,7 @@ declare namespace SFS2X {
      *
      * The possible replies to an invitation.
      */
-    export enum InvitationReply {
+    enum InvitationReply {
         /** Invitation is accepted. */
         ACCEPT,
 
@@ -2292,7 +2292,7 @@ declare namespace SFS2X {
      *
      * Replies to an invitation received by the current user.
      */
-    export class InvitationReplyRequest extends BaseRequest {
+    class InvitationReplyRequest extends BaseRequest {
         /**
          * Creates a new InvitationReplyRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2320,7 +2320,7 @@ declare namespace SFS2X {
      *
      * Sends a generic invitation to a list of users.
      */
-    export class InviteUsersRequest extends BaseRequest {
+    class InviteUsersRequest extends BaseRequest {
         /**
          * Creates a new InviteUsersRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2344,7 +2344,7 @@ declare namespace SFS2X {
      *
      * Sends an invitation to other users/players to join a specific Room.
      */
-    export class JoinRoomInvitationRequest extends BaseRequest {
+    class JoinRoomInvitationRequest extends BaseRequest {
         /**
          * Creates a new JoinRoomInvitationRequest instance. The instance must be passed to the SmartFox.send() method
          * for the request to be executed.
@@ -2389,7 +2389,7 @@ declare namespace SFS2X {
      *
      * Joins the current user in a Room.
      */
-    export class JoinRoomRequest extends BaseRequest {
+    class JoinRoomRequest extends BaseRequest {
         /**
          * Creates a new JoinRoomRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2421,7 +2421,7 @@ declare namespace SFS2X {
      *
      * Leaves one of the Rooms joined by the current user.
      */
-    export class KickUserRequest extends BaseRequest {
+    class KickUserRequest extends BaseRequest {
         /**
          * Creates a new KickUserRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2442,7 +2442,7 @@ declare namespace SFS2X {
         constructor(userId: number, message: string = null, delaySeconds: number = 5);
     }
 
-    export class LeaveRoomRequest extends BaseRequest {
+    class LeaveRoomRequest extends BaseRequest {
         /**
          * Creates a new LeaveRoomRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2464,7 +2464,7 @@ declare namespace SFS2X {
      *
      * Logs the current user in one of the server Zones.
      */
-    export class LoginRequest extends BaseRequest {
+    class LoginRequest extends BaseRequest {
         /**
          * Creates a new LoginRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2501,7 +2501,7 @@ declare namespace SFS2X {
      *
      * Logs the user out of the current server Zone.
      */
-    export class LogoutRequest extends BaseRequest {
+    class LogoutRequest extends BaseRequest {
         /**
          * Creates a new LogoutRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2518,7 +2518,7 @@ declare namespace SFS2X {
      *
      * Sends a moderator message to a specific user or to a group of users.
      */
-    export class ModeratorMessageRequest extends BaseRequest {
+    class ModeratorMessageRequest extends BaseRequest {
         /**
          * Creates a new ModeratorMessageRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2544,7 +2544,7 @@ declare namespace SFS2X {
      *
      * Sends an object containing custom data to all users in a Room, or a subset of them.
      */
-    export class ObjectMessageRequest extends BaseRequest {
+    class ObjectMessageRequest extends BaseRequest {
         /**
          * Creates a new ObjectMessageRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2568,7 +2568,7 @@ declare namespace SFS2X {
      *
      * Turns the current user from player to spectator in a Game Room.
      */
-    export class PlayerToSpectatorRequest extends BaseRequest {
+    class PlayerToSpectatorRequest extends BaseRequest {
         /**
          * Creates a new PlayerToSpectatorRequest instance. The instance must be passed to the SmartFox.send() method
          * for the request to be executed.
@@ -2589,7 +2589,7 @@ declare namespace SFS2X {
      *
      * Sends a private chat message.
      */
-    export class PrivateMessageRequest extends BaseRequest {
+    class PrivateMessageRequest extends BaseRequest {
         /**
          * Creates a new PrivateMessageRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2614,7 +2614,7 @@ declare namespace SFS2X {
      *
      * Sends a public chat message.
      */
-    export class PublicMessageRequest extends BaseRequest {
+    class PublicMessageRequest extends BaseRequest {
         /**
          * Creates a new PublicMessageRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2644,7 +2644,7 @@ declare namespace SFS2X {
      *
      * Quickly joins the current user in a public game.
      */
-    export class QuickJoinGameRequest extends BaseRequest {
+    class QuickJoinGameRequest extends BaseRequest {
         /**
          * Creates a new QuickJoinGameRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2668,7 +2668,7 @@ declare namespace SFS2X {
      *
      * Removes a buddy from the current user's buddy list.
      */
-    export class RemoveBuddyRequest extends BaseRequest {
+    class RemoveBuddyRequest extends BaseRequest {
         /**
          * Creates a new RemoveBuddyRequest instance. The instance must be passed to the SmartFox.send() method for the
          * request to be executed.
@@ -2689,7 +2689,7 @@ declare namespace SFS2X {
      *
      * Sets one or more Buddy Variables for the current user.
      */
-    export class SetBuddyVariablesRequest extends BaseRequest {
+    class SetBuddyVariablesRequest extends BaseRequest {
         /**
          * Creates a new SetBuddyVariablesRequest instance. The instance must be passed to the SmartFox.send() method
          * for the request to be executed.
@@ -2716,7 +2716,7 @@ declare namespace SFS2X {
      *
      * Sets one or more custom Room Variables in a Room.
      */
-    export class SetRoomVariablesRequest extends BaseRequest {
+    class SetRoomVariablesRequest extends BaseRequest {
         /**
          * Creates a new SetRoomVariablesRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2738,7 +2738,7 @@ declare namespace SFS2X {
      *
      * Updates the User position inside an MMORoom.
      */
-    export class SetUserPositionRequest extends BaseRequest {
+    class SetUserPositionRequest extends BaseRequest {
         /**
          * Creates a new SetUserPositionRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2760,7 +2760,7 @@ declare namespace SFS2X {
      *
      * Sets one or more custom User Variables for the current user.
      */
-    export class SetUserVariablesRequest extends BaseRequest {
+    class SetUserVariablesRequest extends BaseRequest {
         /**
          * Creates a new SetUserVariablesRequest instance. The instance must be passed to the SmartFox.send() method for
          * the request to be executed.
@@ -2777,15 +2777,15 @@ declare namespace SFS2X {
         constructor(userVariables: SFSUserVariable[]);
     }
 
-    export class SpectatorToPlayerRequest extends BaseRequest {
+    class SpectatorToPlayerRequest extends BaseRequest {
         // TODO.
     }
 
-    export class SubscribeRoomGroupRequest extends BaseRequest {
+    class SubscribeRoomGroupRequest extends BaseRequest {
         // TODO.
     }
 
-    export class UnsubsribeRoomGroupRequest extends BaseRequest {
+    class UnsubsribeRoomGroupRequest extends BaseRequest {
         // TODO.
     }
 
@@ -2794,7 +2794,7 @@ declare namespace SFS2X {
      *
      * The EventDispatcher class is the base class for all classes that dispatch events.
      */
-    export class EventDispatcher {
+    class EventDispatcher {
         /**
          * Registers an event listener function that will receive notification of an event.
          * If you no longer need an event listener, remove it by calling the removeEventListener() method, or memory
@@ -2827,7 +2827,7 @@ declare namespace SFS2X {
      *
      * The severity levels of logged messages.
      */
-    export enum LogLevel {
+    enum LogLevel {
         /** A DEBUG message is a fine-grained information on the client activity. */
         DEBUG,
 
@@ -2854,7 +2854,7 @@ declare namespace SFS2X {
      *
      * The event types dispatched by the SmartFoxServer 2X JavaScript API internal logger.
      */
-    export enum LoggerEvent {
+    enum LoggerEvent {
         /**
          * The debug event type, dispatched when a low level message is logged by the SmartFoxServer 2X JavaScript API.
          */
@@ -2878,7 +2878,7 @@ declare namespace SFS2X {
      *
      * The internal logger used by the SmartFoxServer 2X client API. This is a singleton class.
      */
-    export class Logger extends EventDispatcher {
+    class Logger extends EventDispatcher {
         /**
          * Indicates whether or not the output of logged messages to the browser's console is enabled.
          *
@@ -2901,11 +2901,11 @@ declare namespace SFS2X {
         level: LogLevel;
     }
 
-    export class MMORoom {
+    class MMORoom {
         // TODO.
     }
 
-    export class MMORoomSettings {
+    class MMORoomSettings {
         // TODO.
     }
 
@@ -2914,7 +2914,7 @@ declare namespace SFS2X {
      *
      * A subset of the RoomSettings defining which events related to the Room will be fired by the SmartFox client.
      */
-    export class RoomEvents {
+    class RoomEvents {
         /**
          * Sets whether or not the userCountChange event should be dispatched whenever the users (or players+spectators)
          * count changes in the Room.
@@ -2950,7 +2950,7 @@ declare namespace SFS2X {
      *
      * A subset of the RoomSettings defining which server-side Extension should be attached to the Room upon creation.
      */
-    export class RoomExtension {
+    class RoomExtension {
         /** Returns the fully qualified name of the main class of the Extension. */
         className: string;
 
@@ -2990,7 +2990,7 @@ declare namespace SFS2X {
      * A subset of the RoomSettings defining which operations users will be able to execute on the Room after its
      * creation.
      */
-    export class RoomPermissions {
+    class RoomPermissions {
         /**
          * Sets whether changing the Room name after its creation is allowed or not.
          *
@@ -3037,7 +3037,7 @@ declare namespace SFS2X {
      *
      * The predefined properties that can be used in matching expressions to search/filter Rooms.
      */
-    export class RoomProperties {
+    class RoomProperties {
         /**
          * The name of the Group to which the Room belongs.
          *
@@ -3114,7 +3114,7 @@ declare namespace SFS2X {
      *
      * The settings required to create a Room using the CreateRoomRequest request.
      */
-    export class RoomSettings {
+    class RoomSettings {
         /**
          * Specifies if the Room allows "Join Room" invitations to be sent by any user or just by its owner.
          * @default true
@@ -3214,7 +3214,7 @@ declare namespace SFS2X {
         constructor(name: string);
     }
 
-    export class SFSGameSettings {
+    class SFSGameSettings {
         // TODO.
     }
 
@@ -3223,7 +3223,7 @@ declare namespace SFS2X {
      *
      * Concatenate two matching expressions using the AND or OR logical operators.
      */
-    export class LogicOperator {
+    class LogicOperator {
         /** An instance of LogicOperator representing the AND logical operator. */
         static readonly AND: LogicOperator;
 
@@ -3240,7 +3240,7 @@ declare namespace SFS2X {
      * A matching expression used to compare custom variables or predefined properties when searching for users or
      * Rooms.
      */
-    export class MatchExpression {
+    class MatchExpression {
         /**
          * Returns the matching criteria used during values comparison among those provided by the BoolMatch,
          * NumberMatch and StringMatch classes.
@@ -3333,7 +3333,7 @@ declare namespace SFS2X {
      *
      * The base class for conditions in matching expressions.
      */
-    export class Matcher {
+    class Matcher {
         /** Returns the condition symbol of this matcher. */
         readonly symbol: string;
 
@@ -3346,7 +3346,7 @@ declare namespace SFS2X {
      *
      * Check boolean conditions in matching expressions.
      */
-    export class BoolMatch extends Matcher {
+    class BoolMatch extends Matcher {
         /** An instance of BoolMatch representing the following condition: bool1 == bool2. */
         static readonly EQUALS: BoolMatch;
 
@@ -3359,7 +3359,7 @@ declare namespace SFS2X {
      *
      * Check numeric conditions in matching expressions.
      */
-    export class NumberMatch extends Matcher {
+    class NumberMatch extends Matcher {
         /** An instance of NumberMatch representing the following condition: number1 == number2. */
         static readonly EQUALS: NumberMatch;
 
@@ -3384,7 +3384,7 @@ declare namespace SFS2X {
      *
      * Check string conditions in matching expressions.
      */
-    export class StringMatch extends Matcher {
+    class StringMatch extends Matcher {
         /** An instance of StringMatch representing the following condition: string1.indexOf(string2) != -1. */
         static readonly CONTAINS: StringMatch;
 
@@ -3429,7 +3429,7 @@ declare namespace SFS2X {
      *
      * The SmartFoxServer 2X JavaScript API main class.
      */
-    export class SmartFox extends EventDispatcher {
+    class SmartFox extends EventDispatcher {
         /**
          * Returns a reference to the Buddy Manager.
          *
@@ -3641,7 +3641,7 @@ declare namespace SFS2X {
      *
      * The default user types known by SmartFoxServer.
      */
-    export enum UserPrivileges {
+    enum UserPrivileges {
         /** The administrator user can send dedicated "administrator messages", kick and ban users. */
         ADMINISTRATOR,
 
@@ -3662,7 +3662,7 @@ declare namespace SFS2X {
      * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/UserProperties.html
      * The predefined properties that can be used in matching expressions to search/filter users.
      */
-    export class UserProperties {
+    class UserProperties {
         /** The user joined at least one Room. */
         static readonly IS_IN_ANY_ROOM: string;
 
@@ -3687,7 +3687,7 @@ declare namespace SFS2X {
      *
      * The position in a 2D or 3D space.
      */
-    export class Vec3D {
+    class Vec3D {
         /** Returns the position along the X axis. */
         px: number;
 
