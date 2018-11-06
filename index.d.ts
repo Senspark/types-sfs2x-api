@@ -2442,6 +2442,11 @@ declare namespace SFS2X {
         constructor(userId: number, message: string = null, delaySeconds: number = 5);
     }
 
+    /**
+     * http://docs2x.smartfoxserver.com/api-docs/jsdoc/client/LeaveRoomRequest.html
+     * 
+     * Leaves one of the Rooms joined by the current user.
+     */
     class LeaveRoomRequest extends BaseRequest {
         /**
          * Creates a new LeaveRoomRequest instance. The instance must be passed to the SmartFox.send() method for the
