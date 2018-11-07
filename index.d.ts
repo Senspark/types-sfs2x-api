@@ -2817,7 +2817,7 @@ declare namespace SFS2X {
          */
         addEventListener(
             evtType: SFSEvent | LoggerEvent,
-            callback: (event: object) => void,
+            callback: (event: any) => void,
             scope: object = null): void;
 
         /**
@@ -2826,7 +2826,7 @@ declare namespace SFS2X {
          * LoggerEvent classes.
          * @param callback The listener function to be removed.
          */
-        removeEventListener(evtType: SFSEvent | LoggerEvent, callback: (event: object) => void): void;
+        removeEventListener(evtType: SFSEvent | LoggerEvent, callback: (event: any) => void): void;
     }
 
     /**
