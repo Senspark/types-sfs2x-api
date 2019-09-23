@@ -80,7 +80,7 @@ declare namespace SFS2X {
          *
          * This event is caused by the AdminMessageRequest request sent by a user with administration privileges.
          */
-        static readonly ADMIN_MESSAGE;
+        static readonly ADMIN_MESSAGE: string;
 
         /**
          * The connection event type, dispatched when a connection between the client and a SmartFoxServer 2X instance
@@ -88,7 +88,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to a call to the SmartFox.connect() method.
          */
-        static readonly CONNECTION;
+        static readonly CONNECTION: string;
 
         /**
          * The connectionLost event type, dispatched when the connection between the client and the SmartFoxServer 2X
@@ -96,7 +96,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to a call to the SmartFox.disconnect() method.
          */
-        static readonly CONNECTION_LOST;
+        static readonly CONNECTION_LOST: string;
 
         /**
          * The extensionResponse event type, dispatched when data coming from a server-side Extension is received by the
@@ -105,7 +105,7 @@ declare namespace SFS2X {
          * Data is usually sent by the server to one or more clients in response to an ExtensionRequest request, but not
          * necessarily.
          */
-        static readonly EXTENSION_RESPONSE;
+        static readonly EXTENSION_RESPONSE: string;
 
         /**
          * The invitation event type, dispatched when the current user receives an invitation from another user.
@@ -113,7 +113,7 @@ declare namespace SFS2X {
          * This event is caused by the InviteUsersRequest and CreateSFSGameRequest requests; the user is supposed to
          * reply using the InvitationReplyRequest request.
          */
-        static readonly INVITATION;
+        static readonly INVITATION: string;
 
         /**
          * The invitationReply event type, dispatched when the current user receives a reply to an invitation he sent
@@ -121,7 +121,7 @@ declare namespace SFS2X {
          *
          * This event is caused by the InvitationReplyRequest request sent by the invitee.
          */
-        static readonly INVITATION_REPLY;
+        static readonly INVITATION_REPLY: string;
 
         /**
          * The invitationReplyError event type, dispatched when an error occurs while the current user is sending a
@@ -129,28 +129,28 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the InvitationReplyRequest request in case the operation failed.
          */
-        static readonly INVITATION_REPLY_ERROR;
+        static readonly INVITATION_REPLY_ERROR: string;
 
         /**
          * The login event type, dispatched when the current user performs a successful login in a server Zone.
          *
          * This event is fired in response to the LoginRequest request.
          */
-        static readonly LOGIN;
+        static readonly LOGIN: string;
 
         /**
          * The loginError event type, dispatched if an error occurs while the user login is being performed.
          *
          * This event is fired in response to the LoginRequest request in case the operation failed.
          */
-        static readonly LOGIN_ERROR;
+        static readonly LOGIN_ERROR: string;
 
         /**
          * The logout event type, dispatched when the current user performs logs out of the server Zone.
          *
          * This event is fired in response to the LogoutRequest request.
          */
-        static readonly LOGOUT;
+        static readonly LOGOUT: string;
 
         /**
          * The mmoItemVariablesUpdate event type, dispatched when an MMOItem Variable is updated in an MMORoom.
@@ -158,7 +158,7 @@ declare namespace SFS2X {
          * This event is caused by an MMOItem Variable being set, updated or deleted in a server side Extension, and it
          * is received only if the current user has the related MMOItem in his Area of Interest.
          */
-        static readonly MMOITEM_VARIABLES_UPDATE;
+        static readonly MMOITEM_VARIABLES_UPDATE: string;
 
         /**
          * The moderatorMessage event type, dispatched when the current user receives a message from a moderator user.
@@ -167,7 +167,7 @@ declare namespace SFS2X {
          * sent by a user with at least moderation privileges. Also, this event can be caused by a kick/ban action
          * executed through the SmartFoxServer 2X Administration Tool.
          */
-        static readonly MODERATOR_MESSAGE;
+        static readonly MODERATOR_MESSAGE: string;
 
         /**
          * The objectMessage event type, dispatched when an object containing custom data is received by the current
@@ -175,7 +175,7 @@ declare namespace SFS2X {
          *
          * This event is caused by an ObjectMessageRequest request sent by any user in the target Room.
          */
-        static readonly OBJECT_MESSAGE;
+        static readonly OBJECT_MESSAGE: string;
 
         /**
          * The pingPong event type, dispatched when a new lag value measurement is available.
@@ -183,7 +183,7 @@ declare namespace SFS2X {
          * This event is fired when the automatic lag monitoring is turned on by passing true to the enableLagMonitor()
          * method.
          */
-        static readonly PING_PONG;
+        static readonly PING_PONG: string;
 
         /**
          * The playerToSpectator event type, dispatched when a player is turned to a spectator inside a Game Room.
@@ -191,7 +191,7 @@ declare namespace SFS2X {
          * This event is fired in response to the PlayerToSpectatorRequest> request if the operation is executed
          * successfully.
          */
-        static readonly PLAYER_TO_SPECTATOR;
+        static readonly PLAYER_TO_SPECTATOR: string;
 
         /**
          * The playerToSpectatorError event type, dispatched when an error occurs while the current user is being turned
@@ -199,7 +199,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the PlayerToSpectatorRequest request in case the operation failed.
          */
-        static readonly PLAYER_TO_SPECTATOR_ERROR;
+        static readonly PLAYER_TO_SPECTATOR_ERROR: string;
 
         /**
          * The privateMessage event type, dispatched when a private message is received by the current user.
@@ -213,7 +213,7 @@ declare namespace SFS2X {
          * the same time in separate windows or tabs (and we need to write his own message in the proper one), the data
          * parameter can be used to store, for example, the id of the recipient user.
          */
-        static readonly PRIVATE_MESSAGE;
+        static readonly PRIVATE_MESSAGE: string;
 
         /**
          * The proximityListUpdate event type, dispatched when one more users or one or more MMOItem objects enter/leave
@@ -224,7 +224,7 @@ declare namespace SFS2X {
          *
          * NOTE: this event substitutes the default userEnterRoom and userExitRoom events available in regular Rooms.
          */
-        static readonly PROXIMITY_LIST_UPDATE;
+        static readonly PROXIMITY_LIST_UPDATE: string;
 
         /**
          * The publicMessage event type, dispatched when a public message is received by the current user.
@@ -232,7 +232,7 @@ declare namespace SFS2X {
          * This event is caused by a PublicMessageRequest request sent by any user in the target Room, including the
          * current user himself.
          */
-        static readonly PUBLIC_MESSAGE;
+        static readonly PUBLIC_MESSAGE: string;
 
         /**
          * The roomAdd event type, dispatched when a new Room is created inside the Zone under any of the Room Groups
@@ -241,7 +241,7 @@ declare namespace SFS2X {
          * This event is fired in response to the CreateRoomRequest and CreateSFSGameRequest requests in case the
          * operation is executed successfully.
          */
-        static readonly ROOM_ADD;
+        static readonly ROOM_ADD: string;
 
         /**
          * The roomCapacityChange event type, dispatched when the capacity of a Room is changed.
@@ -249,7 +249,7 @@ declare namespace SFS2X {
          * This event is fired in response to the ChangeRoomCapacityRequest> request if the operation is executed
          * successfully.
          */
-        static readonly ROOM_CAPACITY_CHANGE;
+        static readonly ROOM_CAPACITY_CHANGE: string;
 
         /**
          * The roomCapacityChangeError event type, dispatched when an error occurs while attempting to change the
@@ -257,7 +257,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the ChangeRoomCapacityRequest request in case the operation failed.
          */
-        static readonly ROOM_CAPACITY_CHANGE_ERROR;
+        static readonly ROOM_CAPACITY_CHANGE_ERROR: string;
 
         /**
          * The roomCreationError event type, dispatched if an error occurs while creating a new Room.
@@ -265,14 +265,14 @@ declare namespace SFS2X {
          * This event is fired in response to the CreateRoomRequest and CreateSFSGameRequest requests in case the
          * operation failed.
          */
-        static readonly ROOM_CREATION_ERROR;
+        static readonly ROOM_CREATION_ERROR: string;
 
         /**
          * The roomFindResult event type, dispatched when a Rooms search is completed.
          *
          * This event is fired in response to the FindRoomsRequest request to return the search result.
          */
-        static readonly ROOM_FIND_RESULT;
+        static readonly ROOM_FIND_RESULT: string;
 
         /**
          * The roomGroupSubscribe event type, dispatched when a Group is subscribed by the current user.
@@ -280,7 +280,7 @@ declare namespace SFS2X {
          * This event is fired in response to the SubscribeRoomGroupRequest> request if the operation is executed
          * successfully.
          */
-        static readonly ROOM_GROUP_SUBSCRIBE;
+        static readonly ROOM_GROUP_SUBSCRIBE: string;
 
         /**
          * The roomGroupSubscribeError event type, dispatched when an error occurs while a Room Group is being
@@ -288,7 +288,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the SubscribeRoomGroupRequest request in case the operation failed.
          */
-        static readonly ROOM_GROUP_SUBSCRIBE_ERROR;
+        static readonly ROOM_GROUP_SUBSCRIBE_ERROR: string;
 
         /**
          * The roomGroupUnsubscribe event type, dispatched when a Group is unsubscribed by the current user.
@@ -296,7 +296,7 @@ declare namespace SFS2X {
          * This event is fired in response to the UnsubscribeRoomGroupRequest request if the operation is executed
          * successfully.
          */
-        static readonly ROOM_GROUP_UNSUBSCRIBE;
+        static readonly ROOM_GROUP_UNSUBSCRIBE: string;
 
         /**
          * The roomGroupUnsubscribeError event type, dispatched when an error occurs while a Room Group is being
@@ -304,7 +304,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the UnsubscribeRoomGroupRequest request in case the operation failed.
          */
-        static readonly ROOM_GROUP_UNSUBSCRIBE_ERROR;
+        static readonly ROOM_GROUP_UNSUBSCRIBE_ERROR: string;
 
         /**
          * The roomJoin event type, dispatched when a Room is joined by the current user.
@@ -312,7 +312,7 @@ declare namespace SFS2X {
          * This event is fired in response to the JoinRoomRequest and QuickJoinGameRequest requests in case the
          * operation is executed successfully.
          */
-        static readonly ROOM_JOIN;
+        static readonly ROOM_JOIN: string;
 
         /**
          * The roomJoinError event type, dispatched when an error occurs while the current user is trying to join a
@@ -320,7 +320,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the JoinRoomRequest request in case the operation failed.
          */
-        static readonly ROOM_JOIN_ERROR;
+        static readonly ROOM_JOIN_ERROR: string;
 
         /**
          * The roomNameChange event type, dispatched when the name of a Room is changed.
@@ -328,7 +328,7 @@ declare namespace SFS2X {
          * This event is fired in response to the ChangeRoomNameRequest request if the operation is executed
          * successfully.
          */
-        static readonly ROOM_NAME_CHANGE;
+        static readonly ROOM_NAME_CHANGE: string;
 
         /**
          * The roomNameChangeError event type, dispatched when an error occurs while attempting to change the name of a
@@ -336,7 +336,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the ChangeRoomNameRequest request in case the operation failed.
          */
-        static readonly ROOM_NAME_CHANGE_ERROR;
+        static readonly ROOM_NAME_CHANGE_ERROR: string;
 
         /**
          * The roomPasswordStateChange event type, dispatched when the password of a Room is set, changed or removed.
@@ -344,7 +344,7 @@ declare namespace SFS2X {
          * This event is fired in response to the ChangeRoomPasswordStateRequest> request if the operation is executed
          * successfully.
          */
-        static readonly ROOM_PASSWORD_STATE_CHANGE;
+        static readonly ROOM_PASSWORD_STATE_CHANGE: string;
 
         /**
          * The roomPasswordStateChangeError event type, dispatched when an error occurs while attempting to set, change
@@ -352,13 +352,13 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the ChangeRoomPasswordStateRequest request in case the operation failed.
          */
-        static readonly ROOM_PASSWORD_STATE_CHANGE_ERROR;
+        static readonly ROOM_PASSWORD_STATE_CHANGE_ERROR: string;
 
         /**
          * The roomRemove event type, dispatched when a Room belonging to one of the Groups subscribed by the client is
          * removed from the Zone.
          */
-        static readonly ROOM_REMOVE;
+        static readonly ROOM_REMOVE: string;
 
         /**
          * The roomVariablesUpdate event type, dispatched when a Room Variable is updated.
@@ -367,13 +367,13 @@ declare namespace SFS2X {
          * the same Room of the current user or, in case of a global Room Variable, by a user in a Room belonging to one
          * of the Groups subscribed by the current client.
          */
-        static readonly ROOM_VARIABLES_UPDATE;
+        static readonly ROOM_VARIABLES_UPDATE: string;
 
         /**
          * The socketError event type, dispatched when a low level socket error is detected, for example
          * bad/inconsistent data.
          */
-        static readonly SOCKET_ERROR;
+        static readonly SOCKET_ERROR: string;
 
         /**
          * The spectatorToPlayer event type, dispatched when a spectator is turned to a player inside a Game Room.
@@ -381,7 +381,7 @@ declare namespace SFS2X {
          * This event is fired in response to the SpectatorToPlayerRequest> request if the operation is executed
          * successfully.
          */
-        static readonly SPECTATOR_TO_PLAYER;
+        static readonly SPECTATOR_TO_PLAYER: string;
 
         /**
          * The spectatorToPlayerError event type, dispatched when an error occurs while the current user is being turned
@@ -389,7 +389,7 @@ declare namespace SFS2X {
          *
          * This event is fired in response to the SpectatorToPlayerRequest request in case the operation failed.
          */
-        static readonly SPECTATOR_TO_PLAYER_ERROR;
+        static readonly SPECTATOR_TO_PLAYER_ERROR: string;
 
         /**
          * The userCountChange event type, dispatched when the number of users/players or spectators inside a Room
@@ -399,7 +399,7 @@ declare namespace SFS2X {
          * of the Groups subscribed by the current client; also this event might be fired or not depending on the Room
          * configuration defined upon its creation (see the RoomSettings.events setting).
          */
-        static readonly USER_COUNT_CHANGE;
+        static readonly USER_COUNT_CHANGE: string;
 
         /**
          * The userEnterRoom event type, dispatched when one of the Rooms joined by the current user is entered by
@@ -411,7 +411,7 @@ declare namespace SFS2X {
          * NOTE: if the Room is of type MMORoom, this event is never fired and it is substituted by the
          * proximityListUpdate event.
          */
-        static readonly USER_ENTER_ROOM;
+        static readonly USER_ENTER_ROOM: string;
 
         /**
          * The userExitRoom event type, dispatched when one of the Rooms joined by the current user is left by another
@@ -423,14 +423,14 @@ declare namespace SFS2X {
          * NOTE: if the Room is of type MMORoom, this event is fired when the current user leaves the Room only. For the
          * other users leaving the Room it is substituted by the proximityListUpdate event.
          */
-        static readonly USER_EXIT_ROOM;
+        static readonly USER_EXIT_ROOM: string;
 
         /**
          * The userFindResult event type, dispatched when a users search is completed.
          *
          * This event is fired in response to the FindUsersRequest request to return the search result.
          */
-        static readonly USER_FIND_RESULT;
+        static readonly USER_FIND_RESULT: string;
 
         /**
          * The userVariablesUpdate event type, dispatched when a User Variable is updated.
@@ -438,7 +438,7 @@ declare namespace SFS2X {
          * This event is caused by the SetUserVariablesRequest request sent by a user in one of the Rooms joined by the
          * current user.
          */
-        static readonly USER_VARIABLES_UPDATE;
+        static readonly USER_VARIABLES_UPDATE: string;
     }
 
     /**
