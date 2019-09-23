@@ -3524,7 +3524,7 @@ declare namespace SFS2X {
          *
          * @param configObj The client configuration data.
          */
-        constructor(configObj: SmartFoxConfig = null);
+        constructor(configObj?: SmartFoxConfig /* = null */);
 
         /**
          * Establishes a connection between the client and a SmartFoxServer 2X instance.
@@ -3536,7 +3536,7 @@ declare namespace SFS2X {
          * @param port The TCP port to connect to.
          * @param useSSL Use an encrypted SSL connection.
          */
-        connect(host: string = null, port: number = -1, useSSL: boolean = null): void;
+        connect(host?: string /* = null */, port?: number /* = -1 */, useSSL?: boolean /* = null */): void;
 
         /** Closes the connection between the client and the SmartFoxServer 2X instance. */
         disconnect(): void;
