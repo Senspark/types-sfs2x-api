@@ -615,7 +615,7 @@ declare namespace SFS2X {
          * error is thrown. If not passed, no type check is executed and the value is returned immediately.
          * @returns The element of this array at the specified index.
          */
-        get(index: number, typeId: SFSDataType = null): any | null;
+        get(index: number, typeId?: SFSDataType /* = null */): any | null;
 
         /** Returns the boolean value at the specified index. */
         getBool(index: number): boolean | null;
@@ -643,7 +643,7 @@ declare namespace SFS2X {
          * @param format If true, the output is formatted in human-readable way.
          * @returns The string representation of this array.
          */
-        getDump(format: boolean = true): string;
+        getDump(format?: boolean /* = true */): string;
 
         /** Returns the floating point number at the specified index. */
         getFloat(index: number): number | null;
@@ -738,7 +738,7 @@ declare namespace SFS2X {
          * @returns The value assigned to the specified key. null is returned if no value is associated with the passed
          * key.
          */
-        get(key: string, typeId: SFSDataType = null): any | null;
+        get(key: string, typeId?: SFSDataType /* = null */): any | null;
 
         /** Returns the boolean value corresponding to the passed key. */
         getBool(key: string): boolean | null;
@@ -765,7 +765,7 @@ declare namespace SFS2X {
          *
          * @param format If true, the output is formatted in a human-readable way.
          */
-        getDump(format: boolean = true): string;
+        getDump(format?: boolean /* = true */): string;
 
         /** Returns the floating point number corresponding to the passed key. */
         getFloat(key: string): number | null;
@@ -994,7 +994,7 @@ declare namespace SFS2X {
         constructor(
             name: string,
             value: boolean | number | string | SFSObject | SFSArray | null,
-            type: VariableType = -1);
+            type?: VariableType /* = -1 */);
 
         /**
          * Returns a string that contains the Buddy Variable name, type and value.
@@ -1047,7 +1047,7 @@ declare namespace SFS2X {
         constructor(
             name: string,
             value: boolean | number | string | SFSObject | SFSArray | null,
-            type: VariableType = -1);
+            type?: VariableType /* = -1 */);
 
         /**
          * Returns a string that contains the Room Variable name, type, value and isPrivate flag.
@@ -1091,7 +1091,7 @@ declare namespace SFS2X {
         constructor(
             name: string,
             value: boolean | number | string | SFSObject | SFSArray | null,
-            type: VariableType = -1);
+            type?: VariableType /* = -1 */);
 
         /**
          * Returns a string that contains the User Variable name, type, value and isPrivate flag.
@@ -1889,7 +1889,7 @@ declare namespace SFS2X {
          * delivered.
          * @param params An SFSObject containing custom parameters to be sent to the recipient user/s.
          */
-        constructor(message: string, recipientMode: MessageRecipientMode, params: SFSObject = null);
+        constructor(message: string, recipientMode: MessageRecipientMode, params?: SFSObject /* = null */);
     }
 
     /**
@@ -1935,10 +1935,10 @@ declare namespace SFS2X {
          */
         constructor(
             userId: number,
-            message: string = null,
-            banMode: BanMode = BanMode.BY_NAME,
-            delaySeconds: number = 5,
-            durationHours: number = 24);
+            message?: string /* = null */,
+            banMode?: BanMode /* = BanMode.BY_NAME */,
+            delaySeconds?: number /* = 5 */,
+            durationHours?: number /* = 24 */);
     }
 
     /**
@@ -1992,7 +1992,7 @@ declare namespace SFS2X {
          * @param params A SFSObject containing additional custom parameters (e.g. the message color, an emoticon id,
          * etc).
          */
-        constructor(message: string, targetBuddy: SFSBuddy, params: SFSObject = null);
+        constructor(message: string, targetBuddy: SFSBuddy, params?: SFSObject /* = null */);
     }
 
     /**
@@ -2096,7 +2096,7 @@ declare namespace SFS2X {
          * @param autoJoin If true, the Room is joined as soon as it is created.
          * @param roomToLeave A SFSRoom object representing the Room that should be left if the new Room is auto-joined.
          */
-        constructor(settings: RoomSettings, autoJoin: boolean = false, roomToLeave: SFSRoom = null);
+        constructor(settings: RoomSettings, autoJoin?: boolean /* = false */, roomToLeave?: SFSRoom /* = null */);
     }
 
     /**
@@ -2149,7 +2149,7 @@ declare namespace SFS2X {
          * @param room If null, the specified command is sent to the current Zone server-side Extension; if not null,
          * the command is sent to the server-side Extension attached to the passed room.
          */
-        constructor(extCmd: string, params: SFSObject = null, room: SFSRoom = null);
+        constructor(extCmd: string, params?: SFSObject /* = null */, room?: SFSRoom /* = null */);
     }
 
     /**
@@ -2172,7 +2172,7 @@ declare namespace SFS2X {
          * @param limit The maximum size of the list of Rooms that will be returned by the roomFindResult event. If 0,
          * all the found Rooms are returned.
          */
-        constructor(expr: MatchExpression, groupId: string = null, limit: number = 0);
+        constructor(expr: MatchExpression, groupId?: string /* = null */, limit?: number /* = 0 */);
     }
 
     /**
@@ -2195,7 +2195,7 @@ declare namespace SFS2X {
          * @param limit The maximum size of the list of users that will be returned by the userFindResult event. If 0,
          * all the found users are returned.
          */
-        constructor(expr: MatchExpression, target: string | SFSRoom = null, limit: number = 0);
+        constructor(expr: MatchExpression, target?: string | SFSRoom  /* = null */, limit?: number /* = 0 */);
     }
 
     /**
@@ -2313,7 +2313,7 @@ declare namespace SFS2X {
          * @param params A SFSObject containing custom parameters to be returned to the inviter together with the reply
          * (for example a message describing the reason of refusal).
          */
-        constructor(invitation: SFSInvitation, invitationReply: InvitationReply, params: SFSObject = null);
+        constructor(invitation: SFSInvitation, invitationReply: InvitationReply, params?: SFSObject /* = null */);
     }
 
     /**
@@ -2337,7 +2337,7 @@ declare namespace SFS2X {
          * (recommended range: 15 to 40 seconds).
          * @param params An SFSObject containing custom parameters containing additional invitation details.
          */
-        constructor(invitedUsers: SFSUser[], secondsForAnswer: number, params: SFSObject = null);
+        constructor(invitedUsers: SFSUser[], secondsForAnswer: number, params?: SFSObject /* = null */);
     }
 
     /**
@@ -2380,9 +2380,9 @@ declare namespace SFS2X {
         constructor(
             targetRoom: SFSRoom,
             invitedUserNames: string[],
-            params: SFSObject = null,
-            expirySeconds: number = 30,
-            asSpectator: boolean = false);
+            params?: SFSObject /* = null */,
+            expirySeconds?: number /* = 30 */,
+            asSpectator?: boolean /* = false */);
     }
 
     /**
@@ -2412,9 +2412,9 @@ declare namespace SFS2X {
          */
         constructor(
             room: number | string | SFSRoom,
-            password: string = null,
-            roomIdToLeave: number = null,
-            asSpectator: boolean = false);
+            password?: string /* = null */,
+            roomIdToLeave?: number /* = null */,
+            asSpectator?: boolean /* = false */);
     }
 
     /**
@@ -2440,7 +2440,7 @@ declare namespace SFS2X {
          * configured in the SmartFoxServer 2X Administration Tool is used.
          * @param delaySeconds The number of seconds after which the user is kicked after receiving the kick message.
          */
-        constructor(userId: number, message: string = null, delaySeconds: number = 5);
+        constructor(userId: number, message?: string /* = null */, delaySeconds?: number /* = 5 */);
     }
 
     /**
@@ -2462,7 +2462,7 @@ declare namespace SFS2X {
          * @param room The SFSRoom object corresponding to the Room that the current user must leave. If null, the last
          * Room joined by the user is left.
          */
-        constructor(room: SFSRoom = null);
+        constructor(room?: SFSRoom /* = null */);
     }
 
     /**
@@ -2496,10 +2496,10 @@ declare namespace SFS2X {
          * the client will use the setting passed to the SmartFox class constructor.
          */
         constructor(
-            userName: string = null,
-            password: string = null,
-            params: SFSObject = null,
-            zoneName: string = null);
+            userName?: string /* = null */,
+            password?: string /* = null */,
+            params?: SFSObject /* = null */,
+            zoneName?: string /* = null */);
     }
 
     /**
@@ -2542,7 +2542,7 @@ declare namespace SFS2X {
          * delivered.
          * @param params A SFSObject containing custom parameters to be sent to the recipient user/s.
          */
-        constructor(message: string, recipientMode: MessageRecipientMode, params: SFSObject = null);
+        constructor(message: string, recipientMode: MessageRecipientMode, params?: SFSObject /* = null */);
     }
 
     /**
@@ -2566,7 +2566,7 @@ declare namespace SFS2X {
          * @param recipients A list of SFSUser objects corresponding to the message recipients; if null, the message is
          * sent to all users in the target Room (except the sender himself).
          */
-        constructor(object: SFSObject, targetRoom: SFSRoom = null, recipients: SFSUser[] = null);
+        constructor(object: SFSObject, targetRoom?: SFSRoom /* = null */, recipients?: SFSUser[] /* = null */);
     }
 
     /**
@@ -2587,7 +2587,7 @@ declare namespace SFS2X {
          * @param targetRoom The SFSRoom object corresponding to the Room in which the player should be turned to
          * spectator. If null, the last Room joined by the user is used.
          */
-        constructor(targetRoom: SFSRoom = null);
+        constructor(targetRoom?: SFSRoom /* = null */);
     }
 
     /**
@@ -2612,7 +2612,7 @@ declare namespace SFS2X {
          * @param params A SFSObject containing additional custom parameters to be sent to the message recipient (for
          * example the color of the text, etc).
          */
-        constructor(message: string, recipientId: number, params: SFSObject = null);
+        constructor(message: string, recipientId: number, params?: SFSObject /* = null */);
     }
 
     /**
@@ -2642,7 +2642,7 @@ declare namespace SFS2X {
          * @param targetRoom The SFSRoom object corresponding to the Room where the message should be dispatched; if
          * null, the last Room joined by the user is used.
          */
-        constructor(message: string, params: SFSObject = null, targetRoom: SFSRoom = null);
+        constructor(message: string, params?: SFSObject /* = null */, targetRoom?: SFSRoom /* = null */);
     }
 
     /**
@@ -2666,7 +2666,7 @@ declare namespace SFS2X {
          * should be applied. The maximum number of elements that this array can contain is 32.
          * @param roomToLeave A SFSRoom object representing the Room that the user should leave when joining the game.
          */
-        constructor(matchExpression: MatchExpression, whereToSearch: SFSRoom[], roomToLeave: SFSRoom = null);
+        constructor(matchExpression: MatchExpression, whereToSearch: SFSRoom[], roomToLeave?: SFSRoom /* = null */);
     }
 
     /**
@@ -2736,7 +2736,7 @@ declare namespace SFS2X {
          * @param room A SFSRoom object representing the Room where to set the Room Variables; if null, the last Room
          * joined by the current user is used.
          */
-        constructor(roomVariables: SFSRoomVariable[], room: SFSRoom = null);
+        constructor(roomVariables: SFSRoomVariable[], room?: SFSRoom /* = null */);
     }
 
     /**
@@ -2759,7 +2759,7 @@ declare namespace SFS2X {
          * @param targetRoom The MMORoom object corresponding to the Room where the position should be set; if null, the
          * last Room joined by the user is used.
          */
-        constructor(pos: Vec3D, targetRoom: MMORoom = null);
+        constructor(pos: Vec3D, targetRoom?: MMORoom /* = null */);
     }
 
     /**
@@ -2818,7 +2818,7 @@ declare namespace SFS2X {
         addEventListener(
             evtType: SFSEvent | LoggerEvent,
             callback: (event: any) => void,
-            scope: object = null): void;
+            scope?: object): void;
 
         /**
          * Removes an event listener.
@@ -3554,7 +3554,7 @@ declare namespace SFS2X {
          * @param interval The amount of seconds to wait between each query (recommended 3-4s).
          * @param queueSize The amount of values stored temporarily and used to calculate the average lag.
          */
-        enableLagMonitor(enabled: boolean, interval: number = 4, queueSize: number = 10): void;
+        enableLagMonitor(enabled: boolean, interval?: number /* = 4 */, queueSize?: number /* = 10 */): void;
 
         /**
          * Returns a list of SFSRoom objects representing the Rooms currently joined by the client.
@@ -3719,6 +3719,6 @@ declare namespace SFS2X {
          * @param pz The position along the Z axis.
          * @param useFloats Force the coordinates to e sent as floating point values to the server.
          */
-        constructor(px: number, py: number, pz: number = 0, useFloats: boolean = false);
+        constructor(px: number, py: number, pz?: number /* = 0 */, useFloats?: boolean /* = false */);
     }
 }
